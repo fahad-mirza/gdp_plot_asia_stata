@@ -42,7 +42,7 @@
 	* overall lines higher up while maintaining trend
 	foreach v of varlist gdp_per_cap1 gdp_per_cap2 gdp_per_cap3 gdp_per_cap4 {
 		quietly summarize `v'
-		generate `v'2 = (`v' * 10) + 1200 if year >= 1975 & year <= 1985
+		generate `v'2 = (`v' * 8) + 1600 if year >= 1975 & year <= 1985
 	}
 	
 	* The following sets of code are storing year 2020 values in locals by the
@@ -95,7 +95,7 @@
 			
 			(scatteri `china' 2024.5 "{bf}China; $`cmax'", ms(i) mlabpos(0) mlabcolor("`r(p4)'"))
 			(scatteri `india' 2024 "{bf}India; $`imax'", ms(i) mlabpos(0) mlabcolor("`r(p2)'"))
-			(scatteri `bangladesh' 2025.3 "{bf}Bangladesh; $`bmax'", ms(i) mlabpos(0) mlabcolor("`r(p1)'"))
+			(scatteri `bangladesh' 2025.4 "{bf}Bangladesh; $`bmax'", ms(i) mlabpos(0) mlabcolor("`r(p1)'"))
 			(scatteri `pakistan' 2024.8 "{bf}Pakistan; $`pmax'", ms(i) mlabpos(0) mlabcolor("`r(p3)'"))
 			(scatteri 10000 1980.8 "{bf}GDP Per Capita", ms(i) mlabpos(0) mlabcolor(gs3) mlabsize(4))
 			(scatteri 9500 1983.6 "Current regional standing | 2020", ms(i) mlabpos(0) mlabcolor(gs3) mlabsize(3))
@@ -124,11 +124,4 @@
 			scheme(white_tableau) 
 			;
 	#delimit cr 
-	
-	
-	* To export this graph you can use the following code:
-	*graph export "./animation_gdp_cap/gdp_per_capita_asia.png", as(png) width(3840) replace
-	
-	
-	
 	
