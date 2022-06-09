@@ -125,3 +125,10 @@
 			;
 	#delimit cr 
 	
+	
+	* Exporting the image as PNG & EPS
+	* The images will then save within the current directory
+	* You may change the location later
+	graph export "./gdp_per_capita_asia.png", as(png) width(3840) replace
+	graph export "./gdp_per_capita_asia.eps", as(eps) replace
+	
